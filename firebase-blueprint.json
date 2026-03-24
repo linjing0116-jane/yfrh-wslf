@@ -1,0 +1,27 @@
+{
+  "entities": {
+    "Article": {
+      "title": "Article",
+      "description": "A media report or science popularization article.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string", "description": "The title of the article." },
+        "summary": { "type": "string", "description": "A short summary of the article." },
+        "url": { "type": "string", "format": "uri", "description": "The original link to the article." },
+        "type": { "type": "string", "enum": ["text", "image-text", "media-draft", "video"], "description": "The format of the content." },
+        "category": { "type": "string", "enum": ["disease", "vaccine", "video", "shingles-month", "other"], "description": "The category of the content." },
+        "publishDate": { "type": "string", "format": "date", "description": "The publication date." },
+        "thumbnail": { "type": "string", "format": "uri", "description": "An optional thumbnail image URL." },
+        "source": { "type": "string", "description": "The media source name." },
+        "createdAt": { "type": "string", "format": "date-time", "description": "When the record was created." }
+      },
+      "required": ["title", "summary", "url", "type", "category", "publishDate", "source", "createdAt"]
+    }
+  },
+  "firestore": {
+    "articles": {
+      "schema": "Article",
+      "description": "Collection of media reports and science popularization articles."
+    }
+  }
+}
